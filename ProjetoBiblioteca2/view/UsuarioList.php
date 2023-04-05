@@ -27,7 +27,7 @@ include "../controller/UsuarioController.php";
     <title>Livraria M&M</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   </head>
   <body>
   <nav class="navbar navbar-dark bg-dark fixed-top">
@@ -65,17 +65,24 @@ include "../controller/UsuarioController.php";
 <br>
 <br>
 <br>
-   
+<div class="container">
+  <div class="row align-items-start">
 <h1>Lista de Clientes</h1>
+</br>
     <form action="UsuarioList.php" method="post">
       <select name="campo">
         <option value="nome">Nome</option>
         <option value="email">Email</option>
         <option value="telefone">Telefone</option>
       </select>
-      <input type="text" name="valor" />
+
+      <input type="text" placeholder="Pesquisar" name="valor" />
+ 
       <button type="submit" class="btn btn-outline-success" value="Buscar">Buscar</button>
-      <a href="UsuarioForm.php" class="btn btn-outline-primary">Cadastrar</a>
+      
+      <a href="LivrosForm.php" class="btn btn-outline-primary">Cadastrar</a>
+</br>
+</br>
 
   <table class="table table-striped table-hover">
         <tr>
@@ -93,12 +100,13 @@ include "../controller/UsuarioController.php";
             <td>$item->nome</td>
             <td>$item->email</td>
             <td>$item->telefone</td>
-            <td><a href='./UsuarioForm.php?id=$item->id'>Editar</a></td>
-            <td><a href='./UsuarioList.php?id=$item->id'
-                    onclick='return confirm(\"Deseja Excluir?\")'
-            >Excluir</a></td>
-           </tr>";
-    }
+            
+    <td><a href='./UsuarioForm.php?id=$item->id'><i class='fa-solid fa-pen-to-square' style='color:blue'></i></a></td>
+    <td><a href='./UsuarioList.php?id=$item->id'
+            onclick='return confirm(\"Deseja Excluir?\")'
+    ><i class='fa-solid fa-trash'style='color:red'></i></a></td>
+   </tr>";
+}
         ?>
     </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>

@@ -27,7 +27,7 @@ include "../controller/LivrosController.php";
     <title>Livraria M&M</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   </head>
   <body>
 
@@ -69,17 +69,24 @@ include "../controller/LivrosController.php";
 <br>
 <br>
 
-
+<div class="container">
+  <div class="row align-items-start">
     <h1>Lista de Livros</h1>
+</br>
     <form action="LivrosList.php" method="post">
       <select name="campo">
         <option value="genero">Gênero do Livro</option>
         <option value="autor">Autor</option>
         <option value="valor">Valor</option>
       </select>
-      <input type="text" name="valor" />
+
+      <input type="text" placeholder="Pesquisar" name="valor" />
+
       <button type="submit" class="btn btn-outline-success" value="Buscar">Buscar</button>
+      
       <a href="LivrosForm.php" class="btn btn-outline-primary">Cadastrar</a>
+      </br>
+      </br>
   <table class="table table-striped table-hover">
         <tr>
             <th>ID</th>
@@ -96,12 +103,12 @@ include "../controller/LivrosController.php";
             <td>$item->genero</td>
             <td>$item->autor</td>
             <td>$item->valor</td>
-            <td><a href='./LivrosForm.php?id=$item->id'>Editar</a></td>
+            <td><a href='./LivrosForm.php.php?id=$item->id'><i class='fa-solid fa-pen-to-square' style='color:blue'></i></a></td>
             <td><a href='./LivrosList.php?id=$item->id'
-               onclick='return confirm(\"Deseja Excluir?\")'
-            >Excluir</a></td>
+                    onclick='return confirm(\"Deseja Excluir?\")'
+            ><i class='fa-solid fa-trash'style='color:red'></i></a></td>
            </tr>";
-    }
+        }
         ?>
     </table>
 
